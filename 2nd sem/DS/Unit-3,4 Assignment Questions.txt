@@ -1,0 +1,18 @@
+1. Define stack. Explain its operations and discuss various implementations of stack.
+2. write a program to evaluate postfix expressions.
+3. Explain about circular queue implementation. write the pseudo code for the 
+    operations on circular queues.
+4. Develop the program to convert infix expression to postfix expression.
+5. Convert the following infix expression to postfix expression ((A+B)*C/(D-E))+F
+6. Write the applications of stack,queue and DEQueue.
+7. Why and when should we use Stack or Queue data structures instead of Arrays/
+    Lists?
+8. Explain different expressions with an example.
+9. Illustrate the various operations on DEQueue with an example for each.
+
+
+
+
+
+
+

@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Semester Materials</title>
+  <style>
+    /* Global styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #121212;
+      color: #ffffff;
+    }
+
+    h2 {
+      color: #ffffff;
+    }
+
+    .navbar {
+      background-color: #1f1f1f;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    }
+
+    .navbar-item {
+      color: #FFD700; /* Golden yellow color */
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .home-container {
+      padding: 20px;
+      text-align: center;
+    }
+
+    .card-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 150px;
+      background-color: #1f1f1f;
+      border: 1px solid #333;
+      border-radius: 10px;
+      padding: 15px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .card:nth-child(1) { background-color: #FF6F61; }
+    .card:nth-child(2) { background-color: #6B5B95; }
+    .card:nth-child(3) { background-color: #88B04B; }
+    .card:nth-child(4) { background-color: #F7CAC9; }
+    .card:nth-child(5) { background-color: #92A8D1; }
+
+    .card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
+    }
+
+    .card-content {
+      font-size: 16px;
+      color: #ffffff;
+    }
+
+    .subject-container {
+      padding: 20px;
+      text-align: center;
+    }
+
+    .files-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      padding: 10px;
+    }
+
+    .file-card {
+      width: 100%;
+      max-width: 350px;
+      background-color: #1f1f1f;
+      border: 1px solid #333;
+      border-radius: 10px;
+      padding: 15px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .file-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
+    }
+
+    .file-card h3 {
+      margin: 0 0 10px 0;
+      font-size: 16px;
+      color: #ffffff;
+    }
+
+    .file-card button {
+      background-color: #bb86fc;
+      color: white;
+      border: none;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    .file-card button:hover {
+      background-color: #3700b3;
+    }
+
+    .back-button {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      color: #bb86fc;
+      font-size: 20px;
+    }
+
+    .back-button:hover {
+      color: #3700b3;
+    }
+
+    .back-button::before {
+      content: '←';
+      margin-right: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="navbar">
+    <div class="navbar-item">Artificial Intelligence and Data Science</div>
+  </div>
+  <div id="app"></div>
+
+  <script>
+    const filesDS = [
+      { name: 'DS - UNIT - I Notes', link: '2nd sem/DS/DS - UNIT - I Notes.pdf' },
+      { name: 'DS - UNIT - II Notes', link: '2nd sem/DS/DS - UNIT - II Notes.pdf' },
+      { name: 'DS - UNIT - III Notes', link: '2nd sem/DS/DS - UNIT - III Notes.docx' },
+      { name: 'DS - DES - CYCLE-1(doc)', link: '2nd sem/DS/DS -DES-CYCLE-1.doc' },
+      { name: 'DS - DES - CYCLE-1(pdf)', link: '2nd sem/DS/DS -DES-CYCLE-1.pdf' },
+      { name: 'DS Tutorial Q&A', link: '2nd sem/DS/DS Tutorial Q&A.docx' },
+      { name: 'Unit-2.1Stack& applications', link: '2nd sem/DS/Unit-2.1Stack& applications.pdf' },
+      { name: 'Unit-3,4 Assignment Questions', link: '2nd sem/DS/Unit-3,4 Assignment Questions.txt' },
+      { name: 'UNIT - IV Notes', link: '2nd sem/DS/UNIT-IV Notes.docx' },
+      { name: 'Unit-V Introduction', link: '2nd sem/DS/Unit-V Introduction.pptx' }
+    ];
+
+    const filesBEEE = [
+      { name: 'BEEE Assignment questions 1', link: '2nd sem/BEEE/BEE Assignment questions 1.pdf' },
+      { name: 'BEEE Unit-1 descriptive', link: '2nd sem/BEEE/BEE unit-1 descriptive.docx' },
+      { name: 'BEEE Assignment - I', link: '2nd sem/BEEE/BEEE Assignment-I.doc' },
+      { name: 'BEEE Bit bank', link: '2nd sem/BEEE/BEEE Bit bank.pdf' },
+      { name: 'BEEE cycle 2 objective questions', link: '2nd sem/BEEE/BEEE cycle 2 objective questions.pdf' },
+      { name: 'BEEE notes', link: '2nd sem/BEEE/beee notes.pdf' },
+      { name: 'BEEE UNIT-I objective questions', link: '2nd sem/BEEE/BEEE UNIT-I objective questions.doc' },
+      { name: 'BEEE UNIT-I R23 NOTES', link: '2nd sem/BEEE/BEEE UNIT-I R23 NOTES.pdf' },
+      { name: 'BEEE UNIT-II objective questions', link: '2nd sem/BEEE/BEEE UNIT-II objective questions.doc' },
+      { name: 'BEEE UNIT-II R23 NOTES', link: '2nd sem/BEEE/BEEE UNIT-II R23 NOTES.pdf' },
+      { name: 'BEEE UNIT-III objective questions', link: '2nd sem/BEEE/BEEE UNIT-III objective questions.doc' },
+      { name: 'BEEE UNIT-III R23 NOTES', link: '2nd sem/BEEE/BEEE UNIT-III R23 NOTES.pdf' },
+      { name: 'BEEE UNIT-IV R23 NOTES', link: '2nd sem/BEEE/BEEE UNIT-IV R23 NOTES.pdf' },
+      { name: 'BEEE UNIT-V R23 NOTES', link: '2nd sem/BEEE/BEEE UNIT-V R23 NOTES.pdf' },
+      { name: 'BEEE UNIT-VI R23 NOTES', link: '2nd sem/BEEE/BEEE UNIT-VI R23 NOTES.pdf' },
+      { name: 'DC Machine', link: '2nd sem/BEEE/dc machine.docx' },
+      { name: 'ELECTRICAL TECHNOLOGY (VOL-I)', link: '2nd sem/BEEE/ELECTRICAL TECHNOLOGY (VOL.- I) BY B.L THERAJA.pdf' },
+      { name: 'II - UNIT DESCRIPTIVE', link: '2nd sem/BEEE/II-UNIT DESCRIPTIVE.docx' },
+      { name: 'III - UNIT DESCRIPTIVE', link: '2nd sem/BEEE/III-UNIT DESCRIPTIVE.docx' }
+    ];
+
+    const filesMATHS = [
+      { name: 'DE and VC Unit 2 questions', link: '2nd sem/MATHS/DEandVC Unit 2 questions.doc' },
+      { name: 'DE and VC Unit 3 Practice Problems', link: '2nd sem/MATHS/DEandVC Unit 3 Practice Problems.docx' },
+      { name: 'DEVC UNIT 1 & 2 QUIZ QUESTIONS', link: '2nd sem/MATHS/DEVC UNIT I& 2 QUIZ QUESTIONS  23-24(II SEM).docx' },
+      { name: 'DEVC Unit IV Revision', link: '2nd sem/MATHS/DEVC Unit IV Revision.pdf' },
+      { name: 'Green theorem and examples', link: '2nd sem/MATHS/Green theorem and examples.pdf' },
+      { name: 'Line integral and examples', link: '2nd sem/MATHS/Line integral and examples.pdf' },
+      { name: 'Math Notes', link: '2nd sem/MATHS/math notes.pdf' },
+      { name: 'D.E. & V.C UNIT 1 PRACTICE QUESTIONS', link: '2nd sem/MATHS/R23 D.E. & V.C UNIT 1 PRACTICE QUESTIONS.docx' },
+      { name: 'Stoke theorem & Gauss divergence theorem', link: '2nd sem/MATHS/Stoke theorem & Gauss divergence theorem.pdf' },
+      { name: 'Vector differentiation-Material', link: '2nd sem/MATHS/Vector differentiation-Material.pdf' },
+      { name: 'Volume and Surface Integrals', link: '2nd sem/MATHS/Volume and Surface Integrals.pdf' }
+    ];
+
+    const filesPHYSICS = [
+      { name: 'EP  Q', link: '2nd sem/PHYSICS/Unit 1  EP  Q.pdf' },
+      { name: 'Unit 1  EP Question bank Wave Optics', link: '2nd sem/PHYSICS/Unit 1  EP Question bank Wave Optics.docx' },
+      { name: 'UNIT 1&2', link: '2nd sem/PHYSICS/UNIT 1&2.pdf' },
+      { name: 'UNIT 2 EP Q', link: '2nd sem/PHYSICS/UNIT 2 EP Q.pdf' },
+      { name: 'EP - Assignment 2', link: '2nd sem/PHYSICS/EP - Assignment 2.pdf' },
+      { name: 'EP Ass-2', link: '2nd sem/PHYSICS/EP Ass-2.pdf' },
+      { name: 'UNIT 3', link: '2nd sem/PHYSICS/UNIT 3.pdf' },
+      { name: 'UNIT 3 EP Q', link: '2nd sem/PHYSICS/UNIT 3 EP Q.pdf' },
+      { name: 'Unit 4', link: '2nd sem/PHYSICS/Unit 4.pdf' },
+      { name: 'UNIT 4 EP Q', link: '2nd sem/PHYSICS/UNIT 4 EP Q.pdf' },
+      { name: 'Semiconductors-unit v', link: '2nd sem/PHYSICS/Semiconductors-unit v.pdf' },
+      { name: 'Assignment 5', link: '2nd sem/PHYSICS/Assignment 5.pdf' }
+    ];
+
+    const filesGRAPHICS = [
+      { name: 'Conversion of Isometric Views to Orthographic Projections and vice versa', link: '2nd sem/GRAPHICS/Conversion of Isometric Views to Orthographic Projections and vice versa.pdf' },
+      { name: 'Development of Surfaces 2023-24', link: '2nd sem/GRAPHICS/Development of Surfaces 2023-24.pdf' },
+      { name: 'EG UNIT-1 CYCLOIDS, INVOLUTES', link: '2nd sem/GRAPHICS/EG UNIT-1 CYCLOIDS, INVOLUTES.pdf' },
+      { name: 'EG UNIT-1 POLYGONS, CONIC SECTIONS', link: '2nd sem/GRAPHICS/EG UNIT-1 POLYGONS, CONIC SECTIONS.pdf' },
+      { name: 'EG UNIT-2 PROJECTION OF POINTS AND LINES', link: '2nd sem/GRAPHICS/EG UNIT-2 PROJECTION OF POINTS AND LINES.pdf' },
+      { name: 'Engineering-Graphics-PPT', link: '2nd sem/GRAPHICS/Engineering-Graphics-PPT.pptx' },
+      { name: 'Projection of Planes', link: '2nd sem/GRAPHICS/Projection of Planes.pdf' },
+      { name: 'Projections of Points, Lines', link: '2nd sem/GRAPHICS/Projections of Points, Lines.pdf' },
+      { name: 'Projections of Solids  - Sample Problems', link: '2nd sem/GRAPHICS/Projections of Solids  - Sample Problems.pdf' },
+      { name: 'Unit IV - Sections of Solids_AI & DS', link: '2nd sem/GRAPHICS/Unit IV - Sections of Solids_AI & DS.pdf' }
+    ];
+
+    const subjects = {
+      DS: filesDS,
+      BEEE: filesBEEE,
+      MATHS: filesMATHS,
+      PHYSICS: filesPHYSICS,
+      GRAPHICS: filesGRAPHICS,
+    };
+
+    const app = document.getElementById('app');
+
+    const createCard = (name, onClick) => {
+      const card = document.createElement('div');
+      card.className = 'card';
+      card.onclick = onClick;
+      const cardContent = document.createElement('div');
+      cardContent.className = 'card-content';
+      cardContent.textContent = name;
+      card.appendChild(cardContent);
+      return card;
+    };
+
+    const createFileCard = (file) => {
+      const fileCard = document.createElement('div');
+      fileCard.className = 'file-card';
+      const fileName = document.createElement('h3');
+      fileName.textContent = file.name;
+      const fileLink = document.createElement('a');
+      fileLink.href = file.link;
+      fileLink.download = '';
+      const downloadButton = document.createElement('button');
+      downloadButton.textContent = 'Download';
+      fileLink.appendChild(downloadButton);
+      fileCard.appendChild(fileName);
+      fileCard.appendChild(fileLink);
+      return fileCard;
+    };
+
+    const renderHome = () => {
+      app.innerHTML = '';
+      const container = document.createElement('div');
+      container.className = 'home-container';
+      const heading = document.createElement('h2');
+      heading.textContent = 'Subjects';
+      container.appendChild(heading);
+      const cardContainer = document.createElement('div');
+      cardContainer.className = 'card-container';
+      Object.keys(subjects).forEach(subject => {
+        const card = createCard(subject, () => renderSubject(subject));
+        cardContainer.appendChild(card);
+      });
+      container.appendChild(cardContainer);
+      app.appendChild(container);
+    };
+
+    const renderSubject = (subject) => {
+      app.innerHTML = '';
+      const container = document.createElement('div');
+      container.className = 'subject-container';
+      const backButton = document.createElement('button');
+      backButton.className = 'back-button';
+      backButton.onclick = renderHome;
+      container.appendChild(backButton);
+      const heading = document.createElement('h2');
+      heading.textContent = subject;
+      container.appendChild(heading);
+      const filesContainer = document.createElement('div');
+      filesContainer.className = 'files-container';
+      subjects[subject].forEach(file => {
+        const fileCard = createFileCard(file);
+        filesContainer.appendChild(fileCard);
+      });
+      container.appendChild(filesContainer);
+      app.appendChild(container);
+    };
+
+    renderHome();
+  </script>
+</body>
+</html>
